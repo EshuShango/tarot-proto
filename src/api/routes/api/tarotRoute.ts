@@ -1,12 +1,13 @@
 import express from "express";
-import { TarotCard } from "../../models/Tarotcard";
+// import { TarotCard } from "../../models/Tarotcard";
 import {
   getTarotCards,
   getSingleCard,
+  createTarotCard,
   updateTarotCard,
-  deleteTarotCard
+  deleteTarotCard,
 } from "../../controllers/tarotController";
-
+ const router = express.Router();
 //! Need to create the functions in the controller
 export default (router: express.Router) => {
   // Define routes
@@ -14,10 +15,10 @@ export default (router: express.Router) => {
   //get all cards
   router.get("/:id", getSingleCard);
   //get single card
-  // router.post("/", createTarotCard);
+  router.post("/", createTarotCard);
   //create a card
-  router.put("/:id", updateTarotCard);
+  //* router.put("/:id", updateTarotCard);
   //update a card
-  router.delete("/:id", deleteTarotCard);
+  //* router.delete("/:id", deleteTarotCard);
   //delete a card
 };

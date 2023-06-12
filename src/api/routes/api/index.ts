@@ -1,11 +1,13 @@
-import express, {Request, Response, Router } from 'express';
-import tarotRoute from './tarotRoute.ts';
-import userRoute from './userRoute.ts';
+import express, { Request, Response, Router } from "express";
+import tarotRoute from "./tarotRoute.ts";
 
-// const router: Router = express.Router();
+// import userRoute from "./userRoute.ts";
 
+const router: Router = express.Router();
 
 export default (router: express.Router) => {
-router.use('/tarot', tarotRoute);
-router.use('/user', userRoute);
+  tarotRoute(router);
+  // userRoute(router);
+  // router.use('/user', userRoute);
+  return router;
 };

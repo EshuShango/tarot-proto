@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 
 config();
 
-const connectDB = async () => {
+export const connectDB = async () => {
     const connectionString = process.env.DB_CONNECTION_STRING;
 
     if (!connectionString) {
@@ -23,4 +23,4 @@ const connectDB = async () => {
     }
 };
 
-export default connectDB;
+//  connectDB;
