@@ -1,7 +1,7 @@
 import connectDB from "./config/db";
 import mongoose from "mongoose";
 import express from "express";
-import routes from "./api/routes";
+import routes from "./api/routes/index";
 
 // Connect to database
 // connectDB();
@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 // 
 // Mount routes
 app.use("/tarot", routes);
+// app.use("/user", routes);
 
 connectDB()
   .then(() => {
