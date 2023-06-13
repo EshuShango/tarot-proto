@@ -44,8 +44,8 @@ export const deleteTarotCard = async (req: Request, res: Response) => {
 // won't need this for a while after the initial creation of the cards
 // a later version will have a user create a card or deck of cards
 export const createTarotCard = async (req: Request, res: Response) => {
-  const newCard: ITarotCardDocument = new TarotCard(req.body);
   try {
+    const newCard: ITarotCardDocument = new TarotCard(req.body);
     const savedCard = await newCard.save();
     res.status(200).json(savedCard);
   } catch (error) {

@@ -4,11 +4,17 @@ import apiRoutes from "./api/index";
 
 const router = express.Router();
 
-export default (router: express.Router) => {
-  apiRoutes(router);
-  return router;
-  // router.get("/", (req: Request, res: Response) => {
-  //   res.send("Wrong Route !");
-  // });
-};
+// Define routes
+router.use("/api", apiRoutes);
+// router.use("/user", router);
+
+export default router;
+
+// export default (router: express.Router) => {
+//   apiRoutes(router);
+//   return router;
+//   // router.get("/", (req: Request, res: Response) => {
+//   //   res.send("Wrong Route !");
+//   // });
+// };
 
