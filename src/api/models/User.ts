@@ -14,6 +14,11 @@ const UserSchema = new Schema({
     password: { type: String, required: true }
 });
 
-const User = mongoose.model<UserDoc>('User', UserSchema);
+const UserModel = mongoose.model<UserDoc>('User', UserSchema);
 
-export { User, UserDoc, UserSchema };
+export { UserModel, UserDoc };
+
+// export const getUserBySessionToken = (sessionToken: string) =>
+//   UserModel.findOne({
+//     "authentication.sessionToken": sessionToken,
+//   });
