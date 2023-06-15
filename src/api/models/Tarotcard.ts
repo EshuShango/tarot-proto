@@ -20,7 +20,7 @@ const TarotCard = mongoose.model<ITarotCardDocument>(
   TarotCardSchema
 );
 
-export { TarotCard, ITarotCardDocument };
+export { TarotCard, ITarotCardDocument};
 
 // methods of the TarotCard model
 //^ Create/Sustain/Destroy methods
@@ -38,6 +38,3 @@ export const getCardByCrdNbmr = (cardNumber: number) =>
   TarotCard.findOne({ cardNumber });
 export const getCardBySuit = (suit: string) => TarotCard.findOne({ suit });
 export const getCardById = (id: string) => TarotCard.findById(id);
-
-
-

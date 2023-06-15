@@ -6,11 +6,13 @@ import {
   getCardByArcana,
   getCardByCrdNbmr,
   getCardBySuit,
+  getCards,
 } from "../../models/Tarotcard";
 
 export const getTarotCards = async (req: Request, res: Response) => {
   try {
-    const cards = await TarotCard.find();
+    // const cards = await TarotCard.find();
+    const cards = await getCards()
     res.status(200).json(cards);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });

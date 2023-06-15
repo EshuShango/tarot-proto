@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Request, Response} from "express";
 import { connectDB } from "./config/db";
 import router from "./api/routes";
 import bodyParser from "body-parser";
@@ -21,6 +21,10 @@ const startServer = async () => {
     // app.get("/test", (req: Request, res: Response) => {
     //   res.json({ message: "Hello World!" });
     // });
+    app.get('/test', (req: Request, res: Response) => {
+      res.send('Test route');
+    });
+    
     app.use("/", router);
 
     app.listen(PORT, () => {
