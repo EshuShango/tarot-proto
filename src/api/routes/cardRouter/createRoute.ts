@@ -7,6 +7,9 @@ import {
 
 const router = Router();
 router.post("/admin/cards", createTarotCard);
+router.put("/admin/cards/:id", updateTarotCard);
+router.delete("/admin/cards/:id", deleteTarotCard);
+
 export default router;
 
 // export default (router: express.Router) => {
