@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import { config } from 'dotenv';
+import { TarotCard } from '../api/models/Tarotcard';
+import { seedCards } from './cards/seedCards';
 
 config();
 
@@ -14,6 +16,7 @@ export const connectDB = async () => {
     try {
         await mongoose.connect((connectionString as string));
         console.log('MongoDB connected...');
+        await seedCards();
     } catch (err: unknown) {
         if (err instanceof Error) {
             // We know that err is an Error object, so it's safe to access err.message
@@ -23,4 +26,3 @@ export const connectDB = async () => {
     }
 };
 
-//  connectDB;
