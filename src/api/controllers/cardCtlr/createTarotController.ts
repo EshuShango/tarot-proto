@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from "express";
+import express, { Request, Response } from "express";
 
 import {
   TarotCard,
@@ -14,6 +14,7 @@ import {
 
 // won't need this for a while after the initial creation of the cards
 // a later version will have a user create a card or deck of cards
+
 export const createTarotCard = async (req: Request, res: Response) => {
   try {
     // console.log("Wtf");

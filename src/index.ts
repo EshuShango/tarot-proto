@@ -1,8 +1,9 @@
-import express, {Request, Response} from "express";
+import express, { Request, Response } from "express";
 import { connectDB } from "./config/db";
 import router from "./api/routes";
 import bodyParser from "body-parser";
-// import cors from "cors"
+import compression from "compression";
+import cors from "cors";
 // import mongoose from "mongoose";
 
 const app = express();
@@ -12,24 +13,20 @@ const startServer = async () => {
   try {
     await connectDB();
     console.log("Connected to the database successfully.");
-    // app.use(
-    //   cors({
-    //     credentials: true,
-    //   })
-    // );
+    const routes = router();
+    app.use(
+      cors({
+        credentials: true,
+      })
+    );
+    app.use(compression());
     app.use(bodyParser.json());
-    // app.get("/test", (req: Request, res: Response) => {
-    //   res.json({ message: "Hello World!" });
-    // });
-    app.get('/test', (req: Request, res: Response) => {
-      res.send('Test route');
-    });
-    
-    app.use("/", router);
 
     app.listen(PORT, () => {
       console.log(`Server is running on port http://localhost:${PORT}`);
     });
+    
+    app.use("/", routes);
   } catch (err) {
     if (err instanceof Error) {
       console.error("Failed to start the server:", err.message);
