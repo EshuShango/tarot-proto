@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 
 import {
   TarotCard,
-  ITarotCardDocument,
+  ITarotCardDoc,
   createCard,
   updateCardById,
   deleteCardById,
@@ -11,6 +11,17 @@ import {
   getCardByCrdNbmr,
   getCardBySuit,
 } from "../../models/Tarotcard";
+// import {
+//   TarotCard,
+//   ITarotCardDocument,
+//   createCard,
+//   updateCardById,
+//   deleteCardById,
+//   getCardById,
+//   getCardByArcana,
+//   getCardByCrdNbmr,
+//   getCardBySuit,
+// } from "../../models";
 
 // won't need this for a while after the initial creation of the cards
 // a later version will have a user create a card or deck of cards

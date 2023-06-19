@@ -1,12 +1,15 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-interface ITarotCardDocument extends Document {
+interface ITarotCardDoc extends Document {
   name: string;
   cardNumber: number;
   arcana: string;
-  suit?: string ;
+  suit?: string;
+  //TODO: add the other fields and methods
+  //! How to add a new field for chatGpt
+  // symbolicMeanings: string[];
+  // description: string;
 }
-//! How to add a new field for chatGpt
 
 const TarotCardSchema: Schema = new Schema({
   name: { type: String, required: true },
@@ -15,14 +18,11 @@ const TarotCardSchema: Schema = new Schema({
   suit: { type: String },
 });
 
-const TarotCard = mongoose.model<ITarotCardDocument>(
-  "TarotCard",
-  TarotCardSchema
-);
+const TarotCard = mongoose.model<ITarotCardDoc>("TarotCard", TarotCardSchema);
 
-export { TarotCard, ITarotCardDocument};
+export { TarotCard, ITarotCardDoc };
 
-// methods of the TarotCard model
+// methods of the TarotCard
 //^ Create/Sustain/Destroy methods
 export const createCard = (values: Record<string, any>) =>
   new TarotCard(values).save().then((card) => card.toObject());

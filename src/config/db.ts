@@ -3,9 +3,9 @@ import { config } from 'dotenv';
 import { TarotCard } from '../api/models/Tarotcard';
 import { seedCards } from './cards/seedCards';
 
-config();
 
 export const connectDB = async () => {
+    config();
     const connectionString = process.env.DB_CONNECTION_STRING;
 
     if (!connectionString) {
@@ -16,8 +16,8 @@ export const connectDB = async () => {
     try {
         await mongoose.connect((connectionString as string));
         console.log('MongoDB connected...');
-        await seedCards();
-    } catch (err: unknown) {
+        // await seedCards();
+    } catch (err) {
         if (err instanceof Error) {
             // We know that err is an Error object, so it's safe to access err.message
             console.error(err.message);

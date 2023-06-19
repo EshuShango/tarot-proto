@@ -26,14 +26,13 @@ const startServer = async () => {
       console.log(`Server is running on port http://localhost:${PORT}`);
     });
     
-    app.use("/", routes);
+    app.use(routes);
   } catch (err) {
     if (err instanceof Error) {
       console.error("Failed to start the server:", err.message);
     }
   }
 };
-
 startServer();
 
 //*
