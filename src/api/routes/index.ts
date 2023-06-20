@@ -1,6 +1,8 @@
 import express from "express";
 import CreateUpdateDelete from "./cardRouter/createRoute.ts";
 import SearchFind from "./cardRouter/searchRoute.ts";
+import  authUser  from "./userRouter/authentication.ts"
+import userLogic from "./userRouter/userRoute.ts"
 // import users from "./userRoute.ts";
 // import authentication from "./authentication.ts"
 
@@ -11,6 +13,10 @@ export default (): express.Router => {
   CreateUpdateDelete(router);
   // Search/Find_card handler
   SearchFind(router);
+  // user logic handler
+  userLogic(router);
+  //auth user logic handler
+  authUser(router)
 
   return router;
 };

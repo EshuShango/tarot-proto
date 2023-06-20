@@ -1,6 +1,6 @@
 import express from "express";
 import { getUserByEmail, createUser } from "../../models/User";
-// import { authentication, random } from "../helpers/index";
+import { authentication, random } from "../../helpers";
 
 export const login = async (req: express.Request, res: express.Response) => {
   try {
@@ -28,7 +28,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     await user.save();
 
-    res.cookie("OLU-AUTH", user.authentication.sessionToken, {
+    res.cookie("USER-AUTH", user.authentication.sessionToken, {
       domain: "localhost",
       path: "/",
     });
@@ -50,8 +50,12 @@ export const register = async (req: express.Request, res: express.Response) => {
     if (existingUser) {
       return res.sendStatus(400);
     }
-    
+
     const salt = random();
+    // console.log("Password:", password);
+    // console.log("Salt:", salt);
+    // console.log("Hashed password:", authentication(password, salt));
+
     const user = await createUser({
       email,
       username,
@@ -60,6 +64,7 @@ export const register = async (req: express.Request, res: express.Response) => {
         salt,
       },
     });
+
     return res.status(200).json(user).end();
   } catch (error) {
     console.log(error);
