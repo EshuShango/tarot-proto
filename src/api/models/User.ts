@@ -3,7 +3,6 @@ import mongoose, { Document, Schema } from "mongoose";
 interface UserDoc extends Document {
   username?: string;
   email: string;
-  //   password: string;
   authentication: Record<string, any>;
   //TODO: create a schema for pastPulls Then add it here
   // pastPulls: [PullSchema];
@@ -12,7 +11,6 @@ interface UserDoc extends Document {
 const UserSchema = new Schema({
   username: { type: String },
   email: { type: String, required: true, unique: true },
-  //   password: { type: String, required: true },
   authentication: {
     password: { type: String, required: true, select: false },
     salt: { type: String, required: true, select: false },

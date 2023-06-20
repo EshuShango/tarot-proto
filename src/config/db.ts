@@ -16,7 +16,7 @@ export const connectDB = async () => {
     try {
         await mongoose.connect((connectionString as string));
         console.log('MongoDB connected...');
-        // await seedCards();
+        await seedCards();
     } catch (err) {
         if (err instanceof Error) {
             // We know that err is an Error object, so it's safe to access err.message

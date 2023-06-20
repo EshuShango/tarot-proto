@@ -1,9 +1,13 @@
 // seedCards.js
 import { cards } from "./seedData";
 import { TarotCard } from "../../api/models/Tarotcard";
+// import { CardWithSymbols, fetchCardsWithSymbols  } from "./addDescription";
 
 export const seedCards = async () => {
   try {
+    // Fetch cards with symbols
+    // const cardsWithSymbols: CardWithSymbols[] = await fetchCardsWithSymbols();
+    // for (const card of cardsWithSymbols) {
     for (const card of cards) {
       // Update the card if it exists, otherwise create a new one
       await TarotCard.updateOne(

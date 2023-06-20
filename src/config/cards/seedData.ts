@@ -1,12 +1,38 @@
-import { ITarotCardDoc } from "../../api/models/Tarotcard";
+import { TarotCard, ITarotCardDoc } from "../../api/models/Tarotcard";
+// import { CardWithSymbols, fetchCardsWithSymbols } from "./cardsWithSymbols";
+// import { tarotCardSymbols } from "./cardDescriptions";
+// import { getCards } from "../../api/models/Tarotcard";
+// interface CardWithSymbols extends ITarotCardDoc {
+//   symbols: string[];
+//   description: string;
+// }
+// const fetchCardsWithSymbols = async (): Promise<CardWithSymbols[]> => {
+//   const tarotCards = await getCards();
+//   const cardsWithSymbols: CardWithSymbols[] = tarotCards.map((card: ITarotCardDoc) => {
+//     const cardSymbol = tarotCardSymbols.find(symbol => symbol.name === card.name);
 
-interface cards extends ITarotCardDoc {
+//     if (!cardSymbol) {
+//       throw new Error(`No symbol found for card: ${card.name}`);
+//     }
+
+//     return {
+//       ...card,
+//       symbols: cardSymbol.symbols,
+//       description: cardSymbol.description,
+//     } as CardWithSymbols;
+//   });
+
+//   return cardsWithSymbols;
+// };
+
+export interface cards extends ITarotCardDoc {
   name: string;
   cardNumber: number;
   arcana: string;
   suit?: string;
+  symbols: string[];
+  description?: string;
 }
-
 export const cards = [
   //^ MAJOR arcana:
   {
@@ -464,3 +490,11 @@ export const cards = [
     suit: "Wands",
   },
 ];
+// export const cards = [
+//   //^ MAJOR arcana:
+//   {
+//     name: "The Fool",
+//     cardNumber: 0,
+//     arcana: "Major",
+//   }
+// ];
