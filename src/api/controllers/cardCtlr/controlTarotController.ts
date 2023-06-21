@@ -47,8 +47,8 @@ export const getTarotCards = async (req: Request, res: Response) => {
 };
 export const getSingleCard = async (req: Request, res: Response) => {
   try {
-    // const card = await TarotCard.findById(req.params.id);
     const card = await getCardById(req.params.id);
+    console.log(card);
     res.status(200).json(card);
   } catch (error) {
     res.status(500).json({ message: "Cant find by Id" });

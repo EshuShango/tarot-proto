@@ -29,7 +29,7 @@ import {
 export const createTarotCard = async (req: Request, res: Response) => {
   try {
     // console.log("Wtf");
-    const { name, cardNumber, arcana, id } = req.body;
+    const { name, cardNumber, arcana, symbols, description } = req.body;
     // console.log(req.body);
     if (!name && !cardNumber && !arcana) {
       return res.status(400).json({ message: "input field req" });
@@ -48,6 +48,8 @@ export const createTarotCard = async (req: Request, res: Response) => {
       name: name,
       cardNumber: cardNumber,
       arcana: arcana,
+      //symbol: symbol,
+      //
     });
 
     return res.status(200).json(newCard);
@@ -65,6 +67,7 @@ export const updateTarotCard = async (req: Request, res: Response) => {
   try {
     const updatedCard = await updateCardById(req.params.id, 
        req.body);
+       
     res.status(200).json(updatedCard);
   } catch (error) {
     res.status(500).json({ message: "Cant update by Id" });

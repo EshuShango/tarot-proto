@@ -30,7 +30,7 @@ export interface cards extends ITarotCardDoc {
   cardNumber: number;
   arcana: string;
   suit?: string;
-  symbols: string[];
+  symbols: Array<string>;
   description?: string;
 }
 export const cards = [
@@ -65,7 +65,7 @@ export const cards = [
     arcana: "Major",
     symbols: ["Fertility", "Femininity", "Beauty", "Nature"],
     description:
-      "The Empress shows a deep connection with our femininity. Femininity translates in many ways – beauty, sensuality, fertility, creative expression, nurturing – and is necessary in creating balance in both men and women.",
+      "The Empress shows a deep connection with our femininity. Femininity translates in many ways  beauty, sensuality, fertility, creative expression, nurturing  and is necessary in creating balance in both men and women.",
   },
   {
     name: "The Emperor",
@@ -731,11 +731,4 @@ export const cards = [
   },
 
 ];
-// export const cards = [
-//   //^ MAJOR arcana:
-//   {
-//     name: "The Fool",
-//     cardNumber: 0,
-//     arcana: "Major",
-//   }
-// ];
+

@@ -4,13 +4,9 @@ interface ITarotCardDoc extends Document {
   name: string;
   cardNumber: number;
   arcana: string;
-  suit?: string;
-  symbols: string[];
+  suit?: string | null;
+  symbols: Array<string>;
   description?: string;
-  //TODO: add the other fields and methods
-  //! How to add a new field for chatGpt
-  // symbolicMeanings: string[];
-  // description: string;
 }
 
 const TarotCardSchema: Schema = new Schema({
@@ -18,14 +14,14 @@ const TarotCardSchema: Schema = new Schema({
   cardNumber: { type: Number, required: true },
   arcana: { type: String, required: true },
   suit: { type: String },
-  symbols: { type: [String], required: true },
+  symbols: { type: Array, required: true },
   description: { type: String },
 });
 
 const TarotCard = mongoose.model<ITarotCardDoc>("TarotCard", TarotCardSchema);
 
 export { TarotCard, ITarotCardDoc };
-
+//TODO: add a method to getCardBySymbol ?
 // methods of the TarotCard
 //^ Create/Sustain/Destroy methods
 export const createCard = (values: Record<string, any>) =>

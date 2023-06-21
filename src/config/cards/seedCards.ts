@@ -1,13 +1,11 @@
 // seedCards.js
 import { cards } from "./seedData";
 import { TarotCard } from "../../api/models/Tarotcard";
-// import { CardWithSymbols, fetchCardsWithSymbols  } from "./addDescription";
 
 export const seedCards = async () => {
   try {
-    // Fetch cards with symbols
-    // const cardsWithSymbols: CardWithSymbols[] = await fetchCardsWithSymbols();
-    // for (const card of cardsWithSymbols) {
+    // Delete existing cards
+    // await TarotCard.deleteMany({});
     for (const card of cards) {
       // Update the card if it exists, otherwise create a new one
       await TarotCard.updateOne(
@@ -16,8 +14,11 @@ export const seedCards = async () => {
           cardNumber: card.cardNumber,
           arcana: card.arcana,
           suit: card.suit,
+          symbols: card.symbols,
+          description: card.description,
         },
         { $set: card },
+
         { upsert: true }
       );
     }
