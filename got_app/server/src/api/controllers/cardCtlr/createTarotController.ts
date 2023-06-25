@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, NextFunction } from "express";
 
 import {
   TarotCard,
@@ -26,7 +26,7 @@ import {
 // won't need this for a while after the initial creation of the cards
 // a later version will have a user create a card or deck of cards
 
-export const createTarotCard = async (req: Request, res: Response) => {
+export const createTarotCard = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // console.log("Wtf");
     const { name, cardNumber, arcana, symbols, description } = req.body;
@@ -55,6 +55,7 @@ export const createTarotCard = async (req: Request, res: Response) => {
     return res.status(200).json(newCard);
   } catch (err) {
     console.error(err instanceof Error);
+    // next(err);// 
     res.status(500).json({ message: "Cant create a card!" });
   }
 };

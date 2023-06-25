@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import { seedCards } from './cards/seedCards';
 
 
+export const PORT = process.env.PORT || 3000;
 export const connectDB = async () => {
     config();
     const connectionString = process.env.DB_CONNECTION_STRING;

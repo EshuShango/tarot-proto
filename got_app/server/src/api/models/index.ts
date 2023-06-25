@@ -1,4 +1,4 @@
-import { UserModel } from "./User";
-import { TarotCard } from "./Tarotcard";
+// import { UserModel } from "./User";
+// import { TarotCard } from "./Tarotcard";
 
-module.exports = { UserModel, TarotCard };
+// module.exports = { UserModel, TarotCard };

@@ -1,5 +1,7 @@
 import express from "express";
 import { deleteUserById, getUserById, getUsers } from "../../models/User";
+import { STATUS_CODES,  } from "http";
+
 
 export const getAllUsers = async (
   req: express.Request,
@@ -12,6 +14,7 @@ export const getAllUsers = async (
   } catch (error) {
     console.log(error);
     return res.sendStatus(400);
+    // throw APIError("API Error", STATUS_CODES.INTERNAL_SERVER_ERROR, error); // 500                          
   }
 };
 

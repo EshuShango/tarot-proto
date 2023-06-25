@@ -21,7 +21,7 @@ const App: React.FC = () => {
           count is {count}
         </button>
       </div> */}
-    </div>
+    </div> 
   );
 }
 
